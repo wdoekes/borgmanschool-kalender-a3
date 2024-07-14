@@ -1,0 +1,222 @@
+/**
+ * Predefined colors.
+ */
+:root {
+    /* usage: `color: var(--color1)` */
+    --color1: #a05fa5; /* purple */
+    --color1-bright: #e7a1eb;
+    --color2: #8cbe32; /* green */
+    --color2-bright: #b2e458;
+    --color3: #ffd700; /* yellow */
+    --color3-bright: #fff940;
+    --color4: #e65a19; /* orange */
+    --color4-bright: #ffb56f;
+    --color5: #ccc; /* black */
+    --color5-bright: #f0f0f0;
+}
+
+/**
+ * Fonts.
+ */
+@font-face {
+    font-family: "Spartan";
+    src: url("./fonts/Spartan-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Spartan";
+    src: url("./fonts/Spartan-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+/**
+ * Main config for A3 portrait pages.
+ */
+html {
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+.page {
+    display: block;
+    width: 297mm;
+    height: 420mm;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: 0;
+    page-break-after: always;
+}
+@page {
+    /* needed? */
+    size: 297mm 420mm;
+    margin: 0 !important;
+}
+.content {
+    color: black;
+    top: 0;
+    width: 297mm;
+    height: 420mm;
+    font-size: 24pt;
+}
+#page-example {
+    display: none;
+}
+
+/**
+ * Main layout.
+ */
+.content {
+    background-image: url(./images/hands.jpg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.content-after {
+    display: block;
+    position: relative;
+    left: 0;
+    margin-top: -420mm;
+    width: 297mm;
+    height: 420mm;
+    background-image: url(./images/overlay-top.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+img.logo {
+    float: right;
+    height: 50mm;
+    margin-right: 15mm;
+    margin-top: 5mm;
+}
+.photo {
+    float: left;
+    width: 99mm;
+    margin: 0;
+    padding: 0;
+    height: 53mm;
+    object-fit: cover;
+}
+h1 {
+    color: var(--color1);
+    margin: 0;
+    padding: 13mm 0 5mm 0;
+    text-align: center;
+}
+
+/**
+ * Calendar table specs.
+ */
+.month-calendar {
+    margin-left: 1mm;
+    border-collapse: separate;
+    border-spacing: 1mm;
+}
+.month-calendar th, .month-calendar td {
+    padding: 2mm;
+    text-align: center;
+}
+.month-calendar th {
+    background-color: #f2f2f2;
+}
+.month-calendar td {
+    height: 25mm;
+    vertical-align: top;
+    width: 35mm;
+}
+
+.month-name {
+    text-decoration: underline;
+}
+
+/**
+ * Week numbers on the left.
+ */
+th.weeknumber {
+    background: none;
+}
+td.weeknumber {
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    padding-top: 3mm;
+    background: radial-gradient(circle at center, var(--color1) 0%,var(--color1) 28%,var(--color1) 30%,transparent 32%,transparent 34%);
+}
+
+/**
+ * Day of month with adjusted colors for saturday, sunday and days with text.
+ */
+td.other-month {
+    background-color: inherit;
+}
+td.this-month {
+    background: var(--color3-bright);
+}
+th.day-sat {
+    background-color: var(--color5);
+}
+td.this-month.day-sat {
+    background-color: var(--color5-bright);
+}
+td.other-month.day-sat {
+    background-color: inherit;
+}
+th.day-sun {
+    background-color: var(--color4);
+}
+td.this-month.day-sun {
+    background-color: var(--color4-bright);
+}
+td.other-month.day-sun {
+    background-color: inherit;
+}
+/* Any day, but with pre-filled text */
+td.this-month.with-text {
+    background-color: var(--color2-bright);
+}
+/* Text */
+.this-month .daynumber {
+    font-weight: bold;
+}
+.other-month .daynumber {
+    font-weight: normal;
+}
+.daytext {
+    font-size: 80%;
+}
+
+/**
+ * Optionally, change specifics for specific months.
+ */
+#page-jan {}
+#page-feb {}
+#page-mar {}
+#page-apr {}
+#page-may {}
+#page-jun {}
+#page-jul {}
+#page-aug {}
+#page-sep { /*background: green;*/ }
+#page-oct {}
+#page-nov {}
+#page-dec {}
+
+/* vim: set ts=8 sw=4 sts=4 et ai: */
