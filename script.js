@@ -14,15 +14,16 @@ function dateToStr(d) {
 }
 
 Date.prototype.getISOWeekNumber = function() {
-    var date = new Date(this.getTime());
+    let date = new Date(this.getTime());
     date.setUTCHours(0, 0, 0, 0);
-    // Switch to monday, this monday decides which year we're in.
-    date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 6) % 7);
-    // First monday in that year is week 1.
-    const week1 = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
-    week1.setUTCDate(week1.getUTCDate() - (week1.getUTCDay() + 6) % 7);
-    // Count number of weeks from week1 to date.
-    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000) / 7);
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+    // Get first day of year
+    let yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil((((date.getTime() - yearStart) / 86400000) + 1) / 7);
+    return weekNo;
 }
 
 
@@ -73,7 +74,8 @@ class MonthCalendarBuilder {
         if (!monthName) {
             console.error('missing <x class="month-name"></x>');
         }
-        monthName.innerText = this.props.monthsOfYear[this.month];
+        const monthText = this.props.monthsOfYear[this.month];
+        monthName.innerText = `${monthText} '${this.year % 100}`;
 
         const tableNode = div.querySelector('table');
         if (!tableNode) {
@@ -144,10 +146,11 @@ class MonthCalendarBuilder {
         let row = document.createElement('tr');
         let date = firstDateOfCalendar;
 
-        this.addWeekNumberCell(row, weekNumber);
+        this.addWeekNumberCell(row, date.getISOWeekNumber());
 
         for (let idx = 0; idx < (6 * 7); ++idx) {
             this.addDayCell(row, date);
+            date.setUTCDate(date.getUTCDate() + 1); // increment by one day
 
             if (idx % 7 === 6) {
                 body.appendChild(row);
@@ -157,11 +160,8 @@ class MonthCalendarBuilder {
 
                 row = document.createElement('tr');
                 weekNumber += 1;
-                this.addWeekNumberCell(row, weekNumber);
+                this.addWeekNumberCell(row, date.getISOWeekNumber());
             }
-
-            // Increment date by one day.
-            date.setUTCDate(date.getUTCDate() + 1);
         }
 
         return body;
