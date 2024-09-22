@@ -183,7 +183,8 @@ th.day-sun {
     background-color: var(--color4);
 }
 td.this-month.day-sun {
-    background-color: var(--color4-bright);
+    /*background-color: var(--color4-bright);*/
+    background-color: var(--color5-bright);  /* copy sat color */
 }
 td.other-month.day-sun {
     background-color: inherit;
@@ -191,6 +192,9 @@ td.other-month.day-sun {
 /* Any day, but with pre-filled text */
 td.this-month.with-text {
     background-color: var(--color2-bright);
+}
+td.this-month.is-free {
+    background-color: var(--color4-bright);
 }
 /* Text */
 .this-month .daynumber {
@@ -200,7 +204,9 @@ td.this-month.with-text {
     font-weight: normal;
 }
 .daytext {
-    font-size: 80%;
+    text-align: left;
+    font-size: 42%;
+    line-height: 1.5;
 }
 
 /**

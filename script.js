@@ -26,6 +26,11 @@ Date.prototype.getISOWeekNumber = function() {
     return weekNo;
 }
 
+Date.prototype.nextDay = function() {
+    return new Date(Date.UTC(
+        this.getUTCFullYear(), this.getUTCMonth(), this.getUTCDate() + 1));
+}
+
 
 class MonthCalendarBuilder {
     static monthIdsOfYear = [
@@ -47,17 +52,44 @@ class MonthCalendarBuilder {
 
     static withWeekNumbers = true;
 
-    constructor(firstDateStr, prefillDates = {}) {
+    constructor(firstDateStr) {
         let date = dateFromStr(firstDateStr);
         if (date.getUTCDate() != 1) {
-            console.error('bad date', date.toUTCString());
-            window.dt = date;
+            throw Error('bad date', date.toUTCString(), date);
         }
 
         this.props = MonthCalendarBuilder; // no easier access to static?
         this.year = date.getUTCFullYear();
         this.month = date.getUTCMonth();
-        this.prefillDates = prefillDates;
+        this.dateClass = {};    // holidays get same color
+        this.dateText = {};     // texts
+    }
+
+    _addDateRemark(remark, cssClass, startDateStr, endDateIncStr) {
+        let startDate = dateFromStr(startDateStr);
+        let endDateInc = dateFromStr(endDateIncStr || startDateStr);
+        while (startDate <= endDateInc) {
+            if (cssClass) {
+                this.dateClass[startDate] = cssClass;
+            }
+            if (!this.dateText[startDate]) {
+                this.dateText[startDate] = [];
+            }
+            this.dateText[startDate].push(remark);
+            startDate = startDate.nextDay();
+        }
+    }
+
+    addHoliday(startDateStr, endDateIncStr, remark) {
+        return this._addDateRemark(remark, 'is-free', startDateStr, endDateIncStr);
+    }
+
+    addOffDay(dateStr, remark) {
+        return this._addDateRemark(remark, 'is-free', dateStr, null);
+    }
+
+    addRemark(dateStr, remark) {
+        return this._addDateRemark(remark, null, dateStr, null);
     }
 
     generateNextCalendarPage() {
@@ -191,6 +223,10 @@ class MonthCalendarBuilder {
             cell.className = `other-month day-${dayId}`;
         }
 
+        if (this.dateClass[date]) {
+            cell.className = `${cell.className} ${this.dateClass[date]}`;
+        }
+
         const dayNumberDiv = document.createElement('div');
         dayNumberDiv.className = 'daynumber';
         dayNumberDiv.innerText = dayOfMonth;
@@ -198,10 +234,10 @@ class MonthCalendarBuilder {
         const dayTextDiv = document.createElement('div');
         dayTextDiv.className = 'daytext';
         if (isCurrentMonth) {
-            const cellText = this.prefillDates[dateToStr(date)];
+            const cellText = this.dateText[date];
             if (cellText) {
                 cell.className += ' with-text';
-                dayTextDiv.innerText = cellText;
+                dayTextDiv.innerText = cellText.join("\n");
             }
         }
 

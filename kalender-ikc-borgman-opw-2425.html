@@ -1,0 +1,149 @@
+<html>
+
+<head>
+  <title>Borgmanschool Kalender Template 2024</title>
+  <script src="./script.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <template id="page-template">
+    <div class="page">
+      <div class="content">
+        <div style="overflow:auto;">
+            <img class="photo" src="./photos/1.jpg" />
+            <img class="photo" src="./photos/4.jpg" />
+            <img class="photo" src="./photos/2.jpg" />
+            <img class="photo" src="./photos/3.jpg" />
+            <img class="photo" src="./photos/1.jpg" />
+            <img class="photo" src="./photos/2.jpg" />
+            <img class="photo" src="./photos/3.jpg" />
+            <img class="photo" src="./photos/4.jpg" />
+            <img class="photo" src="./photos/2.jpg" />
+        </div>
+        <h1 class="month-name">TheMonth</h1>
+        <table></table>
+      </div>
+      <div class="content-after">
+        <img class="logo" src="./images/BOR-Opark-RGB.png" />
+      </div>
+    </div>
+  </template>
+  <script>
+    const cal = new MonthCalendarBuilder('2024-09-01');
+
+    // sept
+    cal.addOffDay('2024-09-16', 'Margedag');
+    cal.addRemark('2024-09-17', 'Informatiemomenten MB/MM');
+    cal.addRemark('2024-09-17', 'Prinsjesdag');
+    cal.addRemark('2024-09-19', 'Informatieavond groep 1 t/m 3');
+    // oct
+    cal.addRemark('2024-10-02', 'Start kinderboekenweek');
+    cal.addRemark('2024-10-14', 'Oudergesprekken nieuwe kinderen groep 1');
+    cal.addRemark('2024-10-15', 'Oudergesprekken nieuwe kinderen groep 1');
+    cal.addRemark('2024-10-16', 'Oudergesprekken nieuwe kinderen groep 1');
+    cal.addRemark('2024-10-17', 'Oudergesprekken nieuwe kinderen groep 1');
+    cal.addRemark('2024-10-18', 'Oudergesprekken nieuwe kinderen groep 1');
+    cal.addHoliday('2024-10-26', '2024-11-03', 'Herfstvakantie');
+    // nov
+    cal.addRemark('2024-11-09', 'Plantsoenloop');
+    cal.addRemark('2024-11-11', 'Sint Maarten');
+    cal.addOffDay('2024-11-19', 'Margedag');
+    cal.addRemark('2024-11-25', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-11-26', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-11-27', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-11-28', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-11-29', 'KOM-gesprekken groep 2 t/m 7');
+    // dec
+    cal.addRemark('2024-12-02', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-12-03', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-12-04', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-12-05', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-12-05', 'Sinterklaasavond');
+    cal.addRemark('2024-12-06', 'KOM-gesprekken groep 2 t/m 7');
+    cal.addRemark('2024-12-06', 'Alle kinderen mogen een uurtje later beginnen');
+    cal.addHoliday('2024-12-21', '2025-01-05', 'Kerstvakantie');
+    cal.addRemark('2024-12-24', 'Kerstavond');
+    cal.addRemark('2024-12-25', 'Eerste kerstdag');
+    cal.addRemark('2024-12-25', 'Tweede kerstdag');
+    cal.addRemark('2024-12-31', 'Oudejaarsavond');
+    // jan
+    cal.addRemark('2025-01-01', 'Nieuwjaarsdag');
+    cal.addOffDay('2025-01-13', 'Margedag');
+    cal.addRemark('2025-01-20', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2025-01-21', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2025-01-22', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2025-01-23', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2025-01-24', 'Gesprekken voorlopig advies groep 8');
+    // feb
+    cal.addRemark('2025-02-04', 'Afname doorstroomtoets groep 8');
+    cal.addRemark('2025-02-05', 'Afname doorstroomtoets groep 8');
+    cal.addOffDay('2025-02-13', 'Margedag');
+    cal.addOffDay('2025-02-14', 'Margedag');
+    cal.addHoliday('2025-02-15', '2025-02-23', 'Voorjaarsvakantie');
+    // mar
+    cal.addRemark('2025-03-03', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-04', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-05', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-06', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-07', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-10', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-11', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-12', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-13', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-03-14', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addOffDay('2025-03-17', 'Margedag');
+    cal.addRemark('2025-03-17', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-18', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-19', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-20', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-21', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-24', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2025-03-25', 'Aanmeldweek VO');
+    cal.addRemark('2025-03-26', 'Aanmeldweek VO');
+    cal.addRemark('2025-03-27', 'Aanmeldweek VO');
+    cal.addRemark('2025-03-28', 'Aanmeldweek VO');
+    cal.addRemark('2025-03-31', 'Aanmeldweek VO');
+    // apr
+    cal.addRemark('2025-04-18', 'Goede Vrijdag (kinderen niet vrij)');
+    cal.addHoliday('2025-04-19', '2025-05-04', 'Meivakantie');
+    cal.addOffDay('2025-04-20', 'Eerste paasdag');
+    cal.addOffDay('2025-04-21', 'Tweede paasdag');
+    cal.addOffDay('2025-04-26', 'Koningsdag');
+    // may
+    cal.addOffDay('2025-05-05', 'Bevrijdingsdag (kinderen vrij)');
+    cal.addRemark('2025-05-07', 'Kamp groep 8');
+    cal.addRemark('2025-05-08', 'Kamp groep 8');
+    cal.addRemark('2025-05-09', 'Kamp groep 8');
+    cal.addOffDay('2025-05-15', 'Margedag');
+    cal.addOffDay('2025-05-16', 'Margedag');
+    cal.addOffDay('2025-05-29', 'Hemelvaartsdag');
+    cal.addOffDay('2025-05-30', 'Margedag');
+    // jun
+    cal.addRemark('2025-06-06', 'IKC-feest');
+    cal.addOffDay('2025-06-08', 'Eerste pinksterdag');
+    cal.addOffDay('2025-06-09', 'Tweede pinksterdag');
+    cal.addOffDay('2025-06-10', 'Margedag');
+    cal.addRemark('2025-06-23', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-06-24', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-06-25', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-06-26', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-06-27', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-06-30', 'KOM-gesprekken groep 1 t/m 7');
+    // jul
+    cal.addRemark('2025-07-01', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-07-02', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-07-03', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-07-04', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2025-07-11', '12:00 start zomervakantie');
+    cal.addHoliday('2025-07-12', '2025-08-24', 'Zomervakantie');
+
+    const calendarPages = 12; // one for each month
+    for (let i = 0; i < calendarPages; ++i) {
+      document.body.appendChild(cal.generateNextCalendarPage());
+    }
+  </script>
+
+</body>
+
+</html>
