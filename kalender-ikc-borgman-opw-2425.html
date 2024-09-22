@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Borgmanschool Kalender Template 2024</title>
+  <title>Borgmanschool Kalender 2024/2025</title>
   <script src="./script.js"></script>
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -10,16 +10,10 @@
   <template id="page-template">
     <div class="page">
       <div class="content">
-        <div style="overflow:auto;">
-            <img class="photo" src="./photos/1.jpg" />
-            <img class="photo" src="./photos/4.jpg" />
-            <img class="photo" src="./photos/2.jpg" />
-            <img class="photo" src="./photos/3.jpg" />
-            <img class="photo" src="./photos/1.jpg" />
-            <img class="photo" src="./photos/2.jpg" />
-            <img class="photo" src="./photos/3.jpg" />
-            <img class="photo" src="./photos/4.jpg" />
-            <img class="photo" src="./photos/2.jpg" />
+        <div style="overflow:auto;height:159mm;">
+            <img class="photo" src="./photos/a.jpg" style="top:30mm;position:relative;width:80mm;height:111mm;" />
+            <img class="photo" src="./photos/b.jpg" style="width:80mm;height:111mm;" />
+            <img class="photo" src="./photos/c.jpg" style="top:60mm;position:relative;width:130mm;height:110mm;object-fit:cover;" />
         </div>
         <h1 class="month-name">TheMonth</h1>
         <table></table>
@@ -141,6 +135,26 @@
     const calendarPages = 12; // one for each month
     for (let i = 0; i < calendarPages; ++i) {
       document.body.appendChild(cal.generateNextCalendarPage());
+    }
+
+    // Loop over all <img> tags and update them so a.jpg becomes
+    // kalender-ikc-borgman-opw-2425/page-sep-a.jpg, etc.
+    // ENABLE if you have the "photos/kalender-ikc-borgman-opw-2425" dir..
+    if (0) {
+        const images = Array.prototype.slice.call(document.getElementsByTagName('img'));
+        images.forEach((img) => {
+            if (img.className == 'photo') {
+                let divPage = img;
+                while (divPage.className != 'page') {
+                    divPage = divPage.parentNode;
+                }
+                const slashIdx = img.src.lastIndexOf('/');
+                img.src = (
+                    img.src.substring(0, slashIdx + 1) +
+                    'kalender-ikc-borgman-opw-2425/' +
+                    divPage.id + '-' + img.src.substring(slashIdx + 1));
+            }
+        });
     }
   </script>
 
