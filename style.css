@@ -174,24 +174,23 @@ th.day-sat {
     background-color: var(--color5);
 }
 td.this-month.day-sat {
-    background-color: var(--color5-bright);
+    background-color: var(--color2-bright);
 }
 td.other-month.day-sat {
     background-color: inherit;
 }
 th.day-sun {
-    background-color: var(--color4);
+    background-color: var(--color5);
 }
 td.this-month.day-sun {
-    /*background-color: var(--color4-bright);*/
-    background-color: var(--color5-bright);  /* copy sat color */
+    background-color: var(--color2-bright);
 }
 td.other-month.day-sun {
     background-color: inherit;
 }
 /* Any day, but with pre-filled text */
 td.this-month.with-text {
-    background-color: var(--color2-bright);
+    /*background-color: var(--color2-bright);*/
 }
 td.this-month.is-free {
     background-color: var(--color4-bright);
