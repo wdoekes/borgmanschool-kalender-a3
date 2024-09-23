@@ -5,20 +5,22 @@ HTML/CSS-based calendar generator using Javascript. Use a web browser to
 print the generated web page as PDF. Submit the PDF to an online print
 service.
 
-Configuration is done in ``document.html``:
+Configuration is done in ``THE_DOCUMENT.html``:
 
 .. code-block:: javascript
 
-    const startCalendar = '2024-09-01';
-    const prefillDates = {
-      '2024-09-02': '1e schooldag, whoop',
-      '2024-09-07': 'eindelijk weekend!!!',
-      '2024-09-08': 'meer weekend...',
-    };
-    const calendar = new MonthCalendarBuilder(startCalendar, prefillDates);
+    const cal = new MonthCalendarBuilder('2024-09-01');
+
+    cal.addOffDay('2024-09-16', 'Margedag');
+    cal.addRemark('2024-09-17', 'Informatiemomenten MB/MM');
+    cal.addRemark('2024-09-17', 'Prinsjesdag');
+    cal.addRemark('2024-09-19', 'Informatieavond groep 1 t/m 3');
+    cal.addHoliday('2024-10-26', '2024-11-03', 'Herfstvakantie');
+    // ...
+
     const calendarPages = 12; // one for each month
     for (let i = 0; i < calendarPages; ++i) {
-      document.body.appendChild(calendar.generateNextCalendarPage());
+      document.body.appendChild(cal.generateNextCalendarPage());
     }
 
 Styles can be adjusted in ``style.css``. E.g. by adjusting these:
@@ -44,3 +46,9 @@ Example output:
 .. image:: ./example.png
    :width: 800
    :alt: Screenshot of multipage A3 PDF output
+
+Final output for 2024/2025 kalender:
+
+.. image:: ./kalender-ikc-borgman-opw-2425-sample.png
+   :width: 800
+   :alt: Side-by-side of all twelve months
