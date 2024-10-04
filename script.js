@@ -107,7 +107,7 @@ class MonthCalendarBuilder {
             console.error('missing <x class="month-name"></x>');
         }
         const monthText = this.props.monthsOfYear[this.month];
-        monthName.innerText = `${monthText} '${this.year % 100}`;
+        monthName.innerText = `${monthText} ${this.year}`;
 
         const tableNode = div.querySelector('table');
         if (!tableNode) {
