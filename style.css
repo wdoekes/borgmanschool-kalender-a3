@@ -124,6 +124,30 @@ h1 {
 }
 
 /**
+ * Front page stuff.
+ */
+#front h1 {
+    color: white;
+    line-height: 1;
+    background-color: var(--color1);
+    padding: 11mm 0 8mm 0;
+    margin: 10mm 0 10mm 0;
+}
+
+#front h2 {
+    color: white;
+    font-size: 40%;
+    text-align: right;
+    background-color: #eeeeee;
+    padding: 2mm 5mm 1mm 5mm;
+    margin: 90mm 0 10mm 0;
+}
+
+#front .content-after {
+    background-image: none;
+}
+
+/**
  * Calendar table specs.
  */
 .month-calendar {
