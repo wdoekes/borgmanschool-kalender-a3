@@ -6,11 +6,14 @@
     --color1: #a05fa5; /* purple */
     --color1-bright: #e7a1eb;
     --color2: #8cbe32; /* green */
-    --color2-bright: #b2e458;
+    /*--color2-bright: #b2e458;*/
+    --color2-bright: #ceff73;
     --color3: #ffd700; /* yellow */
-    --color3-bright: #fff940;
+    /*--color3-bright: #fff940;*/
+    --color3-bright: #fffec0;
     --color4: #e65a19; /* orange */
-    --color4-bright: #ffb56f;
+    /*--color4-bright: #ffb56f;*/
+    --color4-bright: #ffd59f;
     --color5: #ccc; /* black */
     --color5-bright: #f0f0f0;
 }
