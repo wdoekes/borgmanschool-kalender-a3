@@ -43,12 +43,18 @@ Styles can be adjusted in ``style.css``. E.g. by adjusting these:
 
 Example output:
 
-.. image:: ./example.png
+.. image:: ./kalender-ikc-borgman-opw-2425-pdfsample.png
    :width: 800
    :alt: Screenshot of multipage A3 PDF output
 
 Final output for 2024/2025 kalender:
 
-.. image:: ./kalender-ikc-borgman-opw-2425-sample.png
+.. image:: ./kalender-ikc-borgman-opw-2425-yearsample.png
    :width: 800
    :alt: Side-by-side of all twelve months
+
+Sample photos of the printed 2024/2025 kalender:
+
+.. image:: ./kalender-ikc-borgman-opw-2425-printsample.png
+   :width: 800
+   :alt: Photos of the front, September and April
