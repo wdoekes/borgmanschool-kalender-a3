@@ -186,7 +186,7 @@ class MonthCalendarBuilder {
 
             if (idx % 7 === 6) {
                 body.appendChild(row);
-                if (date.getUTCMonth() > this.month) {
+                if (date.getUTCMonth() != this.month) {
                     break;
                 }
 
