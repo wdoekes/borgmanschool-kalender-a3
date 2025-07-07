@@ -72,6 +72,7 @@ body {
 .content {
     color: black;
     top: 0;
+    left: 0;
     width: 297mm;
     height: 420mm;
     font-size: 24pt;
@@ -97,22 +98,30 @@ body {
     width: 297mm;
     height: 420mm;
     background-image: url(./images/overlay-top-3-photos.png);
-    background-position: top;
+    background-position: center 10mm;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+img {
+    margin: 0;
+    padding: 0;
+}
 img.logo {
     float: right;
     height: 50mm;
     margin-right: 15mm;
     margin-top: 5mm;
 }
+/* Move the photos and logo downward so they don't touch the spiral
+ * binding coil. */
+.photos, .logo {
+    position: relative;
+    top: 10mm;
+}
 .photo {
     float: left;
     width: 99mm;
-    margin: 0;
-    padding: 0;
     height: 53mm;
     object-fit: cover;
 }
