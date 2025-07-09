@@ -34,6 +34,11 @@
 /**
  * Main config for A3 portrait pages.
  */
+@page {
+    margin: 0 !important;
+}
+/* PLACE THIS IN YOUR HTML */
+/*@page {  size: 297mm 420mm; } */ /* A3 size */
 html {
     box-sizing: border-box;
     font-family: "Spartan", sans-serif;
@@ -52,8 +57,7 @@ body {
 }
 .page {
     display: block;
-    width: 297mm;
-    height: 420mm;
+    width: 297mm; height: 420mm; /* A3 size */
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -64,19 +68,14 @@ body {
     box-shadow: 0;
     page-break-after: always;
 }
-@page {
-    /* needed? */
-    size: 297mm 420mm;
-    margin: 0 !important;
-}
 .content {
     color: black;
     top: 0;
     left: 0;
-    width: 297mm;
-    height: 420mm;
+    width: 297mm; height: 420mm; /* A3 size */
     font-size: 24pt;
 }
+
 #page-example {
     display: none;
 }
@@ -95,13 +94,18 @@ body {
     position: relative;
     left: 0;
     margin-top: -420mm;
-    width: 297mm;
-    height: 420mm;
+    width: 297mm; height: 420mm; /* A3 size */
     background-image: url(./images/overlay-top-3-photos.png);
     background-position: center 10mm;
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+/* Adjusted size for body class="feat-1mm-extra" */
+.feat-1mm-extra .page,
+.feat-1mm-extra .content-after,
+.feat-1mm-extra .content { width: 299mm; height: 422mm; } /* A3 size + 1mm */
+.feat-1mm-extra .content-after { margin-top: -422mm; } /* A3 size + 1mm */
 
 img {
     margin: 0;
