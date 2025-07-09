@@ -1,0 +1,188 @@
+<html>
+
+<head>
+  <title>Borgmanschool Kalender 2025/2026</title>
+  <script src="./script.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- front page -->
+  <div class="page" id="front">
+    <div class="content">
+      <div style="overflow:hidden;height:159mm;" class="photos">
+        <!--
+        <img class="photo" src="./photos/a.jpg" style="top:30mm;position:relative;width:80mm;height:111mm;" />
+        <img class="photo" src="./photos/b.jpg" style="width:80mm;height:111mm;" />
+        <img class="photo" src="./photos/c.jpg" style="top:60mm;position:relative;width:130mm;height:110mm;object-fit:cover;" />
+        -->
+      </div>
+      <h1>Kalender 2025/2026</h1>
+      <img src="images/bottom-leaves.png" style="width:100%;">
+      <h1>IKC Borgman Oosterpark</h1>
+      <h2>github.com/wdoekes/borgmanschool-kalender-a3</h2>
+    </div>
+    <div class="content-after">
+      <img class="logo" src="./images/BOR-Opark-RGB.png" />
+    </div>
+  </div>
+
+  <!-- template for month-pages -->
+  <template id="page-template">
+    <div class="page">
+      <div class="content">
+        <div style="overflow:hidden;height:159mm;" class="photos">
+          <img class="photo" src="./photos/a.jpg" style="top:30mm;position:relative;width:80mm;height:111mm;" />
+          <img class="photo" src="./photos/b.jpg" style="top:0mm;width:80mm;height:111mm;" />
+          <img class="photo" src="./photos/c.jpg" style="top:60mm;position:relative;width:130mm;height:110mm;object-fit:cover;" />
+        </div>
+        <h1 class="month-name">TheMonth</h1>
+        <table></table>
+      </div>
+      <div class="content-after">
+        <img class="logo" src="./images/BOR-Opark-RGB.png" />
+      </div>
+    </div>
+  </template>
+  <script>
+    const cal = new MonthCalendarBuilder('2025-08-01');
+
+    // aug
+    cal.addHoliday('2025-07-12', '2025-08-24', 'Zomervakantie');
+    // sept
+    cal.addOffDay('2025-09-08', 'Margedag');
+    cal.addRemark('2025-09-09', 'Informatiemoment groep 4 t/m 8');
+    cal.addRemark('2025-09-11', 'Informatiemoment groep 1 t/m 3');
+    cal.addRemark('2025-09-16', 'Prinsjesdag');
+    // oct
+    cal.addRemark('2025-10-01', 'Start Kinderboekenweek');
+    cal.addRemark('2025-10-10', 'Boekenmarkt 13:30 tot 14:15');
+    cal.addOffDay('2025-10-14', 'Margedag');
+    cal.addHoliday('2025-10-18', '2025-10-26', 'Herfstvakantie');
+    cal.addRemark('2025-10-27', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-10-28', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-10-29', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-10-30', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-10-31', 'KOM-gesprekken groep 1 t/m 8');
+    // nov
+    cal.addRemark('2025-11-01', 'Plantsoenloop');
+    cal.addRemark('2025-11-03', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-11-04', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-11-05', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-11-06', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-11-07', 'KOM-gesprekken groep 1 t/m 8');
+    cal.addRemark('2025-11-11', 'Sint Maarten');
+    cal.addOffDay('2025-11-24', 'Margedag');
+    // dec
+    cal.addRemark('2025-12-05', 'Sinterklaasavond');
+    cal.addRemark('2025-12-17', 'Kerstdiner 17:00 tot 18:00');
+    cal.addRemark('2025-12-19', '12:00 kinderen vrij');
+    cal.addHoliday('2025-12-20', '2026-01-04', 'Kerstvakantie');
+    cal.addRemark('2025-12-24', 'Kerstavond');
+    cal.addRemark('2025-12-25', 'Eerste kerstdag');
+    cal.addRemark('2025-12-26', 'Tweede kerstdag');
+    cal.addRemark('2025-12-31', 'Oudejaarsavond');
+    // jan
+    cal.addRemark('2026-01-01', 'Nieuwjaarsdag');
+    cal.addRemark('2026-01-12', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2026-01-13', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2026-01-14', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2026-01-15', 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark('2026-01-16', 'Gesprekken voorlopig advies groep 8');
+    // feb
+    cal.addRemark('2026-02-03', 'Afname doorstroomtoets');
+    cal.addRemark('2026-02-04', 'Afname doorstroomtoets');
+    cal.addOffDay('2026-02-12', 'Margedag');
+    cal.addOffDay('2026-02-13', 'Margedag');
+    cal.addHoliday('2026-02-21', '2026-03-01', 'Voorjaarsvakantie');
+    // mar
+    cal.addRemark('2026-03-02', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-03', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-04', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-05', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-06', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-09', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-10', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-11', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-12', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-13', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-03-16', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2026-03-17', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2026-03-18', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2026-03-19', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2026-03-20', 'Gesprekken definitief advies groep 8');
+    cal.addRemark('2026-03-25', 'Aanmelding VO');
+    cal.addRemark('2026-03-26', 'Aanmelding VO');
+    cal.addRemark('2026-03-27', 'Aanmelding VO');
+    cal.addRemark('2026-03-28', 'Aanmelding VO');
+    cal.addRemark('2026-03-29', 'Aanmelding VO');
+    cal.addRemark('2026-03-30', 'Aanmelding VO');
+    cal.addRemark('2026-03-31', 'Aanmelding VO');
+    // apr
+    cal.addOffDay('2026-04-02', 'Margedag');
+    cal.addOffDay('2026-04-03', 'Margedag');
+    cal.addRemark('2026-04-03', 'Goede Vrijdag');
+    cal.addRemark('2026-04-05', 'Eerste paasdag');
+    cal.addOffDay('2026-04-06', 'Tweede paasdag');
+    cal.addHoliday('2026-04-18', '2026-05-03', 'Meivakantie');
+    cal.addRemark('2026-04-27', 'Koningsdag');
+    // may
+    cal.addRemark('2026-05-04', 'Dodenherdenking');
+    cal.addOffDay('2026-05-05', 'Bevrijdingsdag');
+    cal.addRemark('2026-05-06', 'Kamp groep 8');
+    cal.addRemark('2026-05-07', 'Kamp groep 8');
+    cal.addRemark('2026-05-08', 'Kamp groep 8');
+    cal.addOffDay('2026-05-14', 'Hemelvaartsdag');
+    cal.addOffDay('2026-05-15', 'Margedag');
+    cal.addRemark('2026-05-24', 'Eerste pinksterdag');
+    cal.addOffDay('2026-05-25', 'Tweede pinksterdag');
+    // jun
+    cal.addRemark('2026-06-05', 'IKC-feest');
+    cal.addRemark('2026-06-09', 'Avondvierdaagse');
+    cal.addRemark('2026-06-10', 'Avondvierdaagse');
+    cal.addRemark('2026-06-11', 'Avondvierdaagse');
+    cal.addRemark('2026-06-12', 'Avondvierdaagse');
+    cal.addRemark('2026-06-15', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addOffDay('2026-06-16', 'Margedag');
+    cal.addRemark('2026-06-17', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-18', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-19', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-22', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-23', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-23', 'Wisselochtend');
+    cal.addRemark('2026-06-24', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-25', 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark('2026-06-26', 'KOM-gesprekken groep 1 t/m 7');
+    // jul
+    cal.addRemark('2026-07-03', '12:00 start zomervakantie');
+    cal.addHoliday('2026-07-04', '2026-08-16', 'Zomervakantie');
+
+    const calendarPages = 12; // one for each month
+    for (let i = 0; i < calendarPages; ++i) {
+      document.body.appendChild(cal.generateNextCalendarPage());
+    }
+
+    // Loop over all <img> tags and update them so a.jpg becomes
+    // kalender-ikc-borgman-opw-2425/page-sep-a.jpg, etc.
+    // ENABLE if you have the "photos/kalender-ikc-borgman-opw-2526" dir..
+    if (0) {
+        const images = Array.prototype.slice.call(document.getElementsByTagName('img'));
+        images.forEach((img) => {
+            if (img.className == 'photo') {
+                let divPage = img;
+                while (divPage.className != 'page') {
+                    divPage = divPage.parentNode;
+                }
+                const slashIdx = img.src.lastIndexOf('/');
+                img.src = (
+                    img.src.substring(0, slashIdx + 1) +
+                    'kalender-ikc-borgman-opw-2526/' +
+                    divPage.id + '-' + img.src.substring(slashIdx + 1));
+            }
+        });
+    }
+  </script>
+
+</body>
+
+</html>
