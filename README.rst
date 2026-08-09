@@ -81,7 +81,7 @@ Fix images so they can be correctly passed through to the PDF:
 
     ../../fix-jpeg-images-for-pdf.sh *.jpg
 
-Print (using Chromium):
+Print (using *Chromium*):
 
 .. code-block:: bash
 
@@ -90,3 +90,15 @@ Print (using Chromium):
       file://`pwd`/kalender-ikc-borgman-opw-2425.html
 
 *Using Firefox can be done by printing to PDF through the GUI.*
+
+- Save to PDF
+- Paper size A3
+- Scale 100
+- Margins None
+- Print backgrounds (don't print headers/footers)
+
+In 2026, the *Firefox* product was 131M versus 21M for the *Chromium*
+print. Preliminary tests suggest that *Firefox* with *cairo* is the
+better renderer (cropping and resampling are smarter), but *Chromium*
+with *Skia* is the better writer. Stick with *Chromium*; only reach for
+*Firefox* if you hit a layout bug.
