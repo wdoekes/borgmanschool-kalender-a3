@@ -58,3 +58,35 @@ Sample photos of the printed 2024/2025 kalender:
 .. image:: ./kalender-ikc-borgman-opw-2425-printsample.png
    :width: 800
    :alt: Photos of the front, September and April
+
+
+----
+Tips
+----
+
+Ensure the photos are named correctly:
+
+.. code-block:: bash
+
+    for f in *.JPG *.JPEG *.jpeg; do
+        test -f "$f" && echo mv "$f" "${f%.*}.jpg"
+    done
+
+    mv page-mrt-a.jpg page-mar-a.jpg
+    # and so on...
+
+Fix images so they can be correctly passed through to the PDF:
+
+.. code-block:: bash
+
+    ../../fix-jpeg-images-for-pdf.sh *.jpg
+
+Print (using Chromium):
+
+.. code-block:: bash
+
+    chromium --headless --disable-gpu --no-pdf-header-footer \
+      --print-to-pdf=product/kalender-ikc-borgman-opw-2425-1chromium.pdf \
+      file://`pwd`/kalender-ikc-borgman-opw-2425.html
+
+*Using Firefox can be done by printing to PDF through the GUI.*
