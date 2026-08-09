@@ -89,7 +89,10 @@ class MonthCalendarBuilder {
             if (!this.dateText[startDate]) {
                 this.dateText[startDate] = [];
             }
-            this.dateText[startDate].push(remark);
+            // Push new items to front so that the "non-recurring" item
+            // is first and stands out more.
+            //this.dateText[startDate].push(remark);
+            this.dateText[startDate].unshift(remark);
             startDate = startDate.nextDay();
         }
     }
@@ -264,7 +267,7 @@ class MonthCalendarBuilder {
             const cellText = this.dateText[date];
             if (cellText) {
                 cell.className += ' with-text';
-                dayTextDiv.innerText = cellText.join("\n");
+                dayTextDiv.innerText = cellText.join("\n\n");
             }
         }
 
