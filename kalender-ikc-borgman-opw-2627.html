@@ -1,0 +1,163 @@
+<html>
+
+<head>
+  <title>Borgmanschool Kalender 2026/2027</title>
+  <script src="./script.js"></script>
+  <style>@page { size: 299mm 422mm; }</style>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="feat-1mm-extra">
+  <!-- front page -->
+  <div class="page" id="front">
+    <div class="content">
+      <div style="overflow:hidden;height:159mm;" class="photos">
+      </div>
+      <h1>Kalender 2026/2027</h1>
+      <img src="images/bottom-leaves.png" style="width:100%;">
+      <h1>IKC Borgman Oosterpark</h1>
+      <h2>github.com/wdoekes/borgmanschool-kalender-a3</h2>
+    </div>
+    <div class="content-after">
+      <img class="logo" src="./images/BOR-Opark-RGB.png" />
+    </div>
+  </div>
+
+  <!-- template for month-pages -->
+  <template id="page-template">
+    <div class="page">
+      <div class="content">
+        <div style="overflow:hidden;height:159mm;" class="photos">
+          <img class="photo" src="./photos/a.jpg" style="top:32mm;position:relative;width:80mm;height:111mm;" />
+          <img class="photo" src="./photos/b.jpg" style="top:2mm;position:relative;width:80mm;height:111mm;" />
+          <img class="photo" src="./photos/c.jpg" style="top:62mm;left:2mm;position:relative;width:130mm;height:110mm;object-fit:cover;" />
+        </div>
+        <h1 class="month-name">TheMonth</h1>
+        <table></table>
+      </div>
+      <div class="content-after">
+        <img class="logo" src="./images/BOR-Opark-RGB.png" />
+      </div>
+    </div>
+  </template>
+  <script>
+    const cal = new MonthCalendarBuilder('2026-08-01');
+
+    /*
+
+    cat 2026-2027\ kalender.txt | tr -d '\r' | awk -F';' '
+        $3=="opmerking"&&$2==""{print "    cal.addRemark(['\''" $1 "'\''], '\''" $4 "'\'');"}
+        $3=="opmerking"&&$2!=""{print "    cal.addRemark(['\''" $1 "'\'', '\''" $2 "'\''], '\''" $4 "'\'');"}
+        $3=="margedag"&&$2==""{print "    cal.addOffDay(['\''" $1 "'\''], '\''" $4 "'\'');"}
+        $3=="margedag"&&$2!=""{print "    cal.addOffDay(['\''" $1 "'\'', '\''" $2 "'\''], '\''" $4 "'\'');"}
+        $3=="vakantie"&&$2==""{print "    cal.addHoliday(['\''" $1 "'\''], '\''" $4 "'\'');"}
+        $3=="vakantie"&&$2!=""{print "    cal.addHoliday(['\''" $1 "'\'', '\''" $2 "'\''], '\''" $4 "'\'');"}
+    '
+
+    */
+
+    // aug
+    cal.addHoliday(['2026-07-04', '2026-08-16'], 'Zomervakantie');
+    // sept
+    cal.addOffDay(['2026-09-03', '2026-09-04'], 'Margedag');
+    cal.addRemark(['2026-09-07'], 'Informatiemoment\n(groep 1/2)');
+    cal.addRemark(['2026-09-08'], 'Informatiemoment\n(groep 3 t/m 5)');
+    cal.addRemark(['2026-09-09'], 'Informatiemoment\n(groep 6 t/m 8)');
+    cal.addRemark(['2026-09-10'], 'Informatieavond op thema');
+    cal.addRemark(['2026-09-15'], 'Prinsjesdag');
+    cal.addRemark(['2026-09-28', '2026-10-02'], 'KOM-gesprekken kennismaking\n(1 t/m 8, behalve nieuwe kinderen groep 1)');
+    cal.addRemark(['2026-09-30'], 'Start Kinderboekenweek');
+    // oct
+    cal.addRemark(['2026-10-05', '2026-10-07'], 'KOM-gesprekken kennismaking\n(1 t/m 8, behalve nieuwe kinderen groep 1)');
+    cal.addOffDay(['2026-10-08'], 'Margedag');
+    cal.addRemark(['2026-10-09'], 'KOM-gesprekken kennismaking\n(1 t/m 8, behalve nieuwe kinderen groep 1)');
+    cal.addRemark(['2026-10-09'], 'Boekenmarkt 13:30 tot 14:15');
+    cal.addHoliday(['2026-10-10', '2026-10-18'], 'Herfstvakantie');
+    // nov
+    cal.addRemark(['2026-11-02', '2026-11-06'], 'Afname B8-toetsen');
+    cal.addRemark(['2026-11-07'], 'Plantsoenloop');
+    cal.addRemark(['2026-11-09', '2026-11-13'], 'Afname B8-toetsen');
+    cal.addRemark(['2026-11-11'], 'Sint Maarten');
+    cal.addOffDay(['2026-11-30'], 'Margedag');
+    // dec
+    cal.addRemark(['2026-12-04'], 'Sinterklaasfeest op school');
+    cal.addRemark(['2026-12-05'], 'Sinterklaasavond');
+    cal.addOffDay(['2026-12-11'], 'Margedag');
+    cal.addRemark(['2026-12-17'], 'Kerstdiner van 17:00 tot 18:00');
+    cal.addRemark(['2026-12-18'], '12:00 kinderen vrij');
+    cal.addHoliday(['2026-12-19', '2027-01-03'], 'Kerstvakantie');
+    cal.addRemark(['2026-12-24'], 'Kerstavond');
+    cal.addRemark(['2026-12-25'], 'Eerste kerstdag');
+    cal.addRemark(['2026-12-26'], 'Tweede kerstdag');
+    cal.addRemark(['2026-12-31'], 'Oudejaarsavond');
+    // jan
+    cal.addRemark(['2027-01-01'], 'Nieuwjaarsdag');
+    cal.addRemark(['2027-01-11', '2027-01-15'], 'Gesprekken voorlopig advies groep 8');
+    cal.addRemark(['2027-01-26', '2027-01-27'], 'Afname doorstroomtoets');
+    // feb
+    cal.addOffDay(['2027-02-01', '2027-02-02'], 'Margedag');
+    cal.addRemark(['2027-02-08', '2027-02-12'], 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark(['2027-02-09'], 'Thema-avond ouders');
+    cal.addRemark(['2027-02-15', '2027-02-19'], 'KOM-gesprekken groep 1 t/m 7');
+    cal.addHoliday(['2027-02-20', '2027-02-28'], 'Voorjaarsvakantie');
+    // mar
+    cal.addRemark(['2027-03-16', '2027-03-19'], 'Gesprekken definitief advies groep 8');
+    cal.addRemark(['2027-03-22', '2027-03-24'], 'Gesprekken definitief advies groep 8');
+    cal.addRemark(['2027-03-25', '2027-03-31'], 'Aanmelding VO');
+    cal.addRemark(['2027-03-26'], 'Goede Vrijdag');
+    cal.addRemark(['2027-03-28'], 'Eerste paasdag');
+    cal.addHoliday(['2027-03-29'], 'Tweede paasdag');
+    // apr
+    cal.addOffDay(['2027-04-21'], 'Margedag');
+    cal.addHoliday(['2027-04-24', '2027-05-09'], 'Meivakantie');
+    cal.addRemark(['2027-04-27'], 'Koningsdag');
+    // may
+    cal.addRemark(['2027-05-04'], 'Dodenherdenking');
+    cal.addHoliday(['2027-05-05'], 'Bevrijdingsdag');
+    cal.addHoliday(['2027-05-06'], 'Hemelvaartsdag');
+    cal.addRemark(['2027-05-12', '2027-05-14'], 'Kamp groep 8');
+    cal.addRemark(['2027-05-16'], 'Eerste pinksterdag');
+    cal.addHoliday(['2027-05-17'], 'Tweede pinksterdag');
+    cal.addRemark(['2027-05-18', '2027-05-20'], 'Schoolfotograaf');
+    cal.addRemark(['2027-05-28'], 'IKC-feest');
+    // jun
+    cal.addOffDay(['2027-06-03'], 'Margedag');
+    cal.addRemark(['2027-06-08', '2027-06-11'], 'Avondvierdaagse');
+    cal.addOffDay(['2027-06-15', '2027-06-16'], 'Margedag');
+    cal.addRemark(['2027-06-21', '2027-06-25'], 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark(['2027-06-28', '2027-07-02'], 'KOM-gesprekken groep 1 t/m 7');
+    cal.addRemark(['2027-06-29'], 'Wisselochtend');
+    // jul
+    cal.addRemark(['2027-07-09'], '12:00 start zomervakantie');
+    cal.addHoliday(['2027-07-10', '2027-08-22'], 'Zomervakantie');
+
+    const calendarPages = 12; // one for each month
+    for (let i = 0; i < calendarPages; ++i) {
+      document.body.appendChild(cal.generateNextCalendarPage());
+    }
+
+    // Loop over all <img> tags and update them so a.jpg becomes
+    // photos/<basename>/page-sep-a.jpg, etc.
+    // Check out the README and fix-jpeg-images-for-pdf.sh for image corrections.
+    // ENABLE if you have the "photos/<basename>" dir..
+    if (0) {
+        const images = Array.prototype.slice.call(document.getElementsByTagName('img'));
+        const basename = decodeURIComponent(location.pathname).replace(/^.*\//, '').replace(/\.html?$/, '');
+        images.forEach((img) => {
+            if (img.className == 'photo') {
+                let divPage = img;
+                while (divPage.className != 'page') {
+                    divPage = divPage.parentNode;
+                }
+                const slashIdx = img.src.lastIndexOf('/');
+                img.src = (
+                    img.src.substring(0, slashIdx + 1) + basename + '/' +
+                    divPage.id + '-' + img.src.substring(slashIdx + 1));
+            }
+        });
+    }
+  </script>
+
+</body>
+
+</html>
