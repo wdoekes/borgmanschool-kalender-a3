@@ -65,9 +65,23 @@ class MonthCalendarBuilder {
         this.dateText = {};     // texts
     }
 
-    _addDateRemark(remark, cssClass, startDateStr, endDateIncStr) {
-        let startDate = dateFromStr(startDateStr);
-        let endDateInc = dateFromStr(endDateIncStr || startDateStr);
+    _addDateRemark(remark, cssClass, dateVal) {
+        let startDate, endDateInc;
+        if (dateVal.length == 1) {
+            startDate = dateFromStr(dateVal[0]);
+            endDateInc = startDate;
+        } else if (dateVal.length == 2) {
+            startDate = dateFromStr(dateVal[0]);
+            endDateInc = dateFromStr(dateVal[1]);
+        } else {
+            alert("Arg to " + remark + " invalid");
+            return;
+        }
+        if (startDate > endDateInc) {
+            alert("Date arg to " + remark + " is wrong " + dateVal);
+            return;
+        }
+
         while (startDate <= endDateInc) {
             if (cssClass) {
                 this.dateClass[startDate] = cssClass;
@@ -80,16 +94,29 @@ class MonthCalendarBuilder {
         }
     }
 
-    addHoliday(startDateStr, endDateIncStr, remark) {
-        return this._addDateRemark(remark, 'is-free', startDateStr, endDateIncStr);
+    addHoliday(dateVal, remark, oldRemark = null) {
+        if (!Array.isArray(dateVal)) {
+            // Old signature.
+            dateVal = [dateVal, remark];
+            remark = oldRemark;
+        }
+        return this._addDateRemark(remark, 'is-free', dateVal);
     }
 
-    addOffDay(dateStr, remark) {
-        return this._addDateRemark(remark, 'is-free', dateStr, null);
+    addOffDay(dateVal, remark) {
+        if (!Array.isArray(dateVal)) {
+            // Old signature.
+            dateVal = [dateVal];
+        }
+        return this._addDateRemark(remark, 'is-free', dateVal);
     }
 
-    addRemark(dateStr, remark) {
-        return this._addDateRemark(remark, null, dateStr, null);
+    addRemark(dateVal, remark) {
+        if (!Array.isArray(dateVal)) {
+            // Old signature.
+            dateVal = [dateVal];
+        }
+        return this._addDateRemark(remark, null, dateVal);
     }
 
     generateNextCalendarPage() {

@@ -11,11 +11,11 @@ Configuration is done in ``THE_DOCUMENT.html``:
 
     const cal = new MonthCalendarBuilder('2024-09-01');
 
-    cal.addOffDay('2024-09-16', 'Margedag');
-    cal.addRemark('2024-09-17', 'Informatiemomenten MB/MM');
-    cal.addRemark('2024-09-17', 'Prinsjesdag');
-    cal.addRemark('2024-09-19', 'Informatieavond groep 1 t/m 3');
-    cal.addHoliday('2024-10-26', '2024-11-03', 'Herfstvakantie');
+    cal.addOffDay(['2024-09-16'], 'Margedag');
+    cal.addRemark(['2024-09-17'], 'Informatiemomenten MB/MM');
+    cal.addRemark(['2024-09-17'], 'Prinsjesdag');
+    cal.addRemark(['2024-09-19', '2024-09-20'], 'Informatieavond groep 1 t/m 3');
+    cal.addHoliday(['2024-10-26', '2024-11-03'], 'Herfstvakantie');
     // ...
 
     const calendarPages = 12; // one for each month
