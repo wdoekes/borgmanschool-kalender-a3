@@ -192,13 +192,19 @@ th.weeknumber {
     background: none;
 }
 td.weeknumber {
-    height: 100%;
-    vertical-align: middle;
     text-align: center;
-    font-weight: bold;
+    vertical-align: middle;
+}
+td.weeknumber > div {
+    display: inline-block;
+    width: 13mm;
+    height: 13mm;
+    line-height: 10mm;
+    border-radius: 50%;
+    background: var(--color1);
     color: white;
-    padding-top: 3mm;
-    background: radial-gradient(circle at center, var(--color1) 0%,var(--color1) 28%,var(--color1) 30%,transparent 32%,transparent 34%);
+    font-weight: bold;
+    line-height: 14mm;
 }
 
 /**
