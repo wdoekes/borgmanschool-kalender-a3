@@ -263,7 +263,7 @@ class MonthCalendarBuilder {
 
         const dayTextDiv = document.createElement('div');
         dayTextDiv.className = 'daytext';
-        if (isCurrentMonth) {
+        if (isCurrentMonth || true) {
             const cellText = this.dateText[date];
             if (cellText) {
                 cell.className += ' with-text';

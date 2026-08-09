@@ -253,6 +253,9 @@ td.this-month.is-free {
     font-size: 42%;
     line-height: 1.5;
 }
+.other-month .daytext {
+    color: #888;
+}
 
 /**
  * Optionally, change specifics for specific months.
